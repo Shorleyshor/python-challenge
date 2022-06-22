@@ -6,14 +6,14 @@ import csv
 
 total_vote = []
 voters = 0
-candidates_list = []
 
-percentage_vote_candidate = 0
+
+percentage_vote_candidate = {}
 each_candidate_vote = 0
 winner = 0
-
-candidate_vote = []
-candidates = 0
+candidate_name = []
+candidate_vote = {}
+candidates = []
 
 
 # Path to collect data from the Resources folder
@@ -32,20 +32,29 @@ with open(csvpath) as csvfile:
     for rows in csvreader:
         total_vote.append(int(rows[0]))
 
-        candidates_list.append(str(rows[2]))     
+        #candidates_list.append(str(rows[2]))     
 
     
-    voters = len(total_vote)
-    candidates = (candidates_list)
-  
+        voters = len(total_vote)
+        #candidates = (candidates_list)
     
-    #
     
-#candidate_name = rows[2]  
+        candidate_name = rows[2]  
 
-#name_count = rows[2].count("Charles Casper Stockham")
+        if candidate_name not in candidates:
+            candidates.append(candidate_name)
+            candidate_vote[candidate_name] = 0
 
-#counted = len(name_count)
+        candidate_vote[candidate_name] += 1
+
+
+        percentage_vote_candidate = ((candidate_vote[candidate_name]) / (voters)) * 100
+
+
+    
+
+
 
 print(f'Total Votes:  {str(voters)}')
-#print(f' {counted}')
+  
+print(f' {candidate_vote}, {percentage_vote_candidate}')
