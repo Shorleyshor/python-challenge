@@ -16,6 +16,10 @@ Raymon_count = 0
 # Path to collect data from the Resources folder
 csvpath = os.path.join(os.path.expanduser('~'),'Desktop','python-challenge','Pypoll','Resources','election_data.csv')
 
+textpath = os.path.join(os.path.expanduser('~'),'Desktop','python_challenge','PyPoll','analysis','analysis.txt')
+# to create a text file
+f = open(textpath, 'w')
+
 # Read in the CSV file
 with open(csvpath) as csvfile:
 
@@ -76,12 +80,29 @@ print("Election Results")
 print("-----------------------------")
 print(f'Total Votes:  {str(total_votes)}')
 print("-----------------------------")
-print (f'Diana DeGette {Diana_votes_percentage}% ({Diana_vote})')
-print(f'Charles Casper Stockham {Charles_votes_percentage}% ({Charles_vote})')
-print(f'Raymon Anthony Doane {Raymon_votes_percentage }% ({Raymon_vote})')
+print (f'Diana DeGette: {Diana_votes_percentage}% ({Diana_vote})')
+print(f'Charles Casper Stockham: {Charles_votes_percentage}% ({Charles_vote})')
+print(f'Raymon Anthony Doane: {Raymon_votes_percentage }% ({Raymon_vote})')
 print("-----------------------------")
+print(f' Winner: {winner}')
   
 
-
-
-
+f.write("Election Results")
+f.write('\n')
+f.write("----------------------------")
+f.write('\n')
+f.write(f'Total votes: {total_votes}')
+f.write('\n')
+f.write("----------------------------")
+f.write('\n')
+f.write(f'Diana DeGette: {Diana_votes_percentage}% ({Diana_vote})')
+f.write('\n')
+f.write(f'Charles Casper Stockham: {Charles_votes_percentage}% ({Charles_vote})')
+f.write('\n')
+f.write(f'Raymon Anthony Doane: {Raymon_votes_percentage}% ({Raymon_vote})')
+f.write('\n')
+f.write("----------------------------")
+f.write('\n')
+f.write(f'Winner: {winner}')
+f.write('\n')
+f.write("----------------------------")
