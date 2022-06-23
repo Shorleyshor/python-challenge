@@ -14,6 +14,11 @@ greatest_increase = []
 # Path to collect data from the Resources folder
 csvpath = os.path.join(os.path.expanduser('~'),'Desktop','python-challenge','PyBank','Resources','budget_data.csv')
 
+textpath = os.path.join(os.path.expanduser('~'),'Desktop','python-challenge','PyBank','analysis','analysis.txt')
+# to create a text file
+
+f = open(textpath, 'w')
+
 # Read in the CSV file
 with open(csvpath) as csvfile:
 
@@ -54,47 +59,42 @@ with open(csvpath) as csvfile:
         # calculate the greatest decrease in profits (date and amount) over the entire period
         greatest_decrease = min(profit_loss_change)
 
-
+        
     for rows in csvreader:
 
-        if  greatest_increase is int(rows[1]):
+        if  greatest_increase == int(rows[1]):
                months_change == int(rows[0])
             
 
 
+print(f'Financial Analysis')
+print("---------------------------------------------")
+print(f' Total Months:  {str(total_months)}')
 
+print(f' Total: ${str(net_profitLosses)}')
 
+print(f' Average Change: ${str(average_profitLoss)}')
 
+print(f' Greatest Increase in Profits: (${greatest_increase})')
 
+print(f' Greatest Decrease in Profits: (${greatest_decrease})')
+print(f' {months_change}')
 
-
-
-
-
-
-    print(f' Total Months:  {str(total_months)}')
-
-    print(f' Total: ${str(net_profitLosses)}')
-
-    print(f' Average Change: ${str(average_profitLoss)}')
-
-    print(f' Greatest Increase in Profits: ${greatest_increase}')
-
-    print(f' Greatest Decrease in Profits: ${greatest_decrease}')
-    print(f' {months_change}')
 
 
     
-        #candidates = (candidates_list)
-    
-    
-        candidate_name = rows[2]  
+f.write("Financial Analysis")
+f.write('\n')
+f.write("------------------------------------------")
+f.write('\n')
+f.write(f' Total Months:  {str(total_months)}')
+f.write('\n')
+f.write(f' Total: ${str(net_profitLosses)}')
+f.write('\n')
+f.write(f' Average Change: ${str(average_profitLoss)}')
+f.write('\n')
+f.write(f' Greatest Increase in Profits: ${greatest_increase}')
+f.write('\n')
+f.write(f' Greatest Decrease in Profits: ${greatest_decrease}')
+f.write('\n')
 
-        if candidate_name not in candidates:
-            candidates.append(candidate_name)
-            candidate_vote[candidate_name] = 0
-
-        candidate_vote[candidate_name] += 1
-
-
-        percentage_vote_candidate = ((candidate_vote[candidate_name]) / (voters)) * 100
