@@ -61,11 +61,11 @@ with open(csvpath) as csvfile:
 
         # set an 'if' statement to check for the candidate with the higest vote
         if highest_vote == Diana_vote:
-            highest_vote = "Diana DeGette"
+            winner = "Diana DeGette"
         elif highest_vote == Charles_vote:
-            highest_vote = "Charles Casper Stockham"
+            winner= "Charles Casper Stockham"
         elif highest_vote == Raymon_vote:
-            highest_vote = "Raymon Anthony Doane"
+            winner = "Raymon Anthony Doane"
 
 
     
@@ -76,5 +76,12 @@ print("Election Results")
 print("-----------------------------")
 print(f'Total Votes:  {str(total_votes)}')
 print("-----------------------------")
-print (f' {Diana_votes_percentage}%')
+print (f'Diana DeGette {Diana_votes_percentage}% ({Diana_vote})')
+print(f'Charles Casper Stockham {Charles_votes_percentage}% ({Charles_vote})')
+print(f'Raymon Anthony Doane {Raymon_votes_percentage }% ({Raymon_vote})')
+print("-----------------------------")
   
+
+
+
+
