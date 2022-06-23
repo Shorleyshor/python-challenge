@@ -54,9 +54,27 @@ with open(csvpath) as csvfile:
         Raymon_vote = Raymon_count
 
 
-    
-    
+        # to calculate the candidate with most vote (winner)
 
+        vote_count = [Diana_vote, Charles_vote, Raymon_vote]
+        highest_vote = max(vote_count)
+
+        # set an 'if' statement to check for the candidate with the higest vote
+        if highest_vote == Diana_vote:
+            highest_vote = "Diana DeGette"
+        elif highest_vote == Charles_vote:
+            highest_vote = "Charles Casper Stockham"
+        elif highest_vote == Raymon_vote:
+            highest_vote = "Raymon Anthony Doane"
+
+
+    
 
        
 
+print("Election Results")
+print("-----------------------------")
+print(f'Total Votes:  {str(total_votes)}')
+print("-----------------------------")
+print (f' {Diana_votes_percentage}%')
+  
