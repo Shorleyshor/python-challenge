@@ -83,3 +83,18 @@ with open(csvpath) as csvfile:
     print(f' Greatest Decrease in Profits: ${greatest_decrease}')
     print(f' {months_change}')
 
+
+    
+        #candidates = (candidates_list)
+    
+    
+        candidate_name = rows[2]  
+
+        if candidate_name not in candidates:
+            candidates.append(candidate_name)
+            candidate_vote[candidate_name] = 0
+
+        candidate_vote[candidate_name] += 1
+
+
+        percentage_vote_candidate = ((candidate_vote[candidate_name]) / (voters)) * 100

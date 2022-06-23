@@ -4,8 +4,8 @@ import csv
 
 
 
-total_vote = []
-voters = 0
+vote = []
+total_votes = 0
 
 
 percentage_vote_candidate = {}
@@ -30,31 +30,20 @@ with open(csvpath) as csvfile:
 
     #loop through the data after the deader row
     for rows in csvreader:
-        total_vote.append(int(rows[0]))
+        vote.append(int(rows[0]))
 
-        #candidates_list.append(str(rows[2]))     
+        #total votes casted
+        total_votes = len(vote)
+
+            
 
     
-        voters = len(total_vote)
-        #candidates = (candidates_list)
-    
-    
-        candidate_name = rows[2]  
-
-        if candidate_name not in candidates:
-            candidates.append(candidate_name)
-            candidate_vote[candidate_name] = 0
-
-        candidate_vote[candidate_name] += 1
-
-
-        percentage_vote_candidate = ((candidate_vote[candidate_name]) / (voters)) * 100
-
-
     
 
 
+       
 
-print(f'Total Votes:  {str(voters)}')
+
+
+print(f'Total Votes:  {str(total_votes)}')
   
-print(f' {candidate_vote}, {percentage_vote_candidate}')
